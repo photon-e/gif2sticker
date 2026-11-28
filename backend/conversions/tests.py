@@ -7,11 +7,17 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import SimpleTestCase
 from rest_framework.test import APIClient
 
-from .processing import download_x_post
+from .processing import download_x_post, normalize_x_post_url
 from django.core.exceptions import ValidationError
 
 
 class ConversionTests(SimpleTestCase):
+    def test_x_video_path_is_normalized_to_its_public_post(self):
+        self.assertEqual(
+            normalize_x_post_url("https://x.com/r3ctorr/status/2126212523665891526/video/1"),
+            "https://x.com/r3ctorr/status/2126212523665891526",
+        )
+
     def test_uploaded_gif_returns_animated_webp(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             gif_path = Path(temp_dir) / "sample.gif"
