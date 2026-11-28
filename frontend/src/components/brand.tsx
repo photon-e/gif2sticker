@@ -1,0 +1,2 @@
+import { Sticker } from "lucide-react";
+export function Brand({ compact = false }: { compact?: boolean }) { return <a href="#top" className="inline-flex items-center gap-2.5 font-bold tracking-tight text-ink" aria-label="GIF2Sticker home"><span className="grid size-9 place-items-center rounded-xl bg-green text-white"><Sticker size={20} strokeWidth={2.4}/></span>{!compact && <span className="text-lg">gif<span className="text-green">2</span>sticker</span>}</a>; }

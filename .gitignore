@@ -1,0 +1,12 @@
+.env
+.venv/
+venv/
+node_modules/
+.next/
+*.tsbuildinfo
+out/
+__pycache__/
+*.py[cod]
+*.sqlite3
+coverage/
+.DS_Store
